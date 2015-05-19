@@ -1,10 +1,23 @@
 ![](http://i.imgur.com/Q7TQYHx.png)
-# `$ git-stats`
+# `$ git-stats` [![Release 1.4.1](https://img.shields.io/badge/Release-1.4.1-green.svg)](https://github.com/IonicaBizau/git-stats/releases)
 A GitHub-like contributions calendar, but locally, with all your git commits.
 
-These are all real commits from the last year.
+I'd be curious to see your calendar with all your commits. Ping me on Twitter ([**@IonicaBizau**](https://twitter.com/IonicaBizau)). :smile: Until then, here's my calendar:
 
 ![](http://i.imgur.com/LfLJAaE.png)
+
+## Contents
+
+ - [Installation](#installation)
+ - [Catching the `git commit` command](#catching-the-git-commit-command)
+   - [Using `git` hooks](#using-git-hooks)
+   - [Overriding the `git` command](#overriding-the-git-command)
+ - [Usage](#usage)
+   - [Importing and deleting commits](#importing-and-deleting-commits)
+   - [Importing all the commits from GitHub and BitBucket](#importing-all-the-commits-from-github-and-bitbucket)
+   - [See the GitHub Contributions calendar](#see-the-github-contributions-calendar)
+ - [Documentation](#documentation-)
+ - [How to contribute](#how-to-contribute)
 
 ## Installation
 ```sh
@@ -26,7 +39,7 @@ wget -qO- https://raw.githubusercontent.com/IonicaBizau/git-stats/master/scripts
 ```
 
 Then, you have to run `git init` into your existing git repositories from your local machine (that's because the `post-commit` should be updated). This
-step will not be needed after clonning a repository (the git hooks will be added automatically from `~/.git-templates`).
+step will not be needed after cloning a repository (the git hooks will be added automatically from `~/.git-templates`).
 
 #### Overriding the `git` command
 One of the solutions is becoming a mad scientist, overriding the `git` command with a function. However, this may not work for you if you're using `zsh`.
@@ -99,6 +112,9 @@ Documentation can be found at https://github.com/IonicaBizau/git-stats
 
 If you override the `git` command with a function, then your commits will be automatically recorded.
 
+If you run `git-stats` to display graph on Windows, please use a terminal that can properly display ANSI colors.
+Cygwin Terminal is known to work, while Windows Command Prompt and Git Bash do not.
+
 ### Importing and deleting commits
 I know it's not nice to start your git commit calendar from scratch. That's why I
 created a `git-stats-importer` that imports or deletes the commits from a repository.
@@ -149,8 +165,7 @@ $ npm install -g ghcal
 $ ghcal ionicabizau
 ```
 
-Fore more detailed documentation, check out the repository: https://github.com/IonicaBizau/ghcal.
-
+For more detailed documentation, check out the repository: https://github.com/IonicaBizau/ghcal.
 
 ## Documentation [![Inline docs](http://inch-ci.org/github/IonicaBizau/git-stats.svg?branch=master)](http://inch-ci.org/github/IonicaBizau/git-stats)
 
@@ -190,7 +205,7 @@ Saves the provided stats.
 - **GitStats** The `GitStats` object.
 
 ### `iterateDays(data, callback)`
-Iterate the days, calling the callback function for each day.
+Iterate through the days, calling the callback function on each day.
 
 #### Params
 - **Object** `data`: An object containing the following fields:
